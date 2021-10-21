@@ -6,7 +6,6 @@ vscode:
     - vsls-contrib.codetour
     - auchenberg.vscode-browser-preview
     - synedra.auto-run-command
-    - tomoki1207.pdf
 
 checkoutLocation: "."
 
