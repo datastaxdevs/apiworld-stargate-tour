@@ -26,8 +26,8 @@ RUN chown -R gitpod:gitpod /workspace
 
 # COPY --chown=gitpod:gitpod /root/config/.bashrc /home/gitpod/.bashrc.d/999-datastax
 USER gitpod
-COPY .config /home/gitpod
-
+RUN mkdir -p /home/gitpod/.config/httpie
+COPY .config/httpie/config.json /home/gitpod/.config/httpie
 RUN pip3 install httpie-astra
 
 EXPOSE 8888
