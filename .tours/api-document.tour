@@ -1,0 +1,27 @@
+{
+    "$schema": "https://aka.ms/codetour-schema",
+    "title": "3. Document API",
+    "steps": [
+      {
+        "title": "Document API - Create table",
+        "description": "## Document API - Create Table\n\nWe'll work through the process of creating a table, adding some rows, editing and deleting them and then deleting the table, to see what the calls look like using HTTP.\n\nThe table will be called \"cavemen\" and it will have three fields:\n* Firstname\n* Lastname\n* Occupation\n\nThe partitioning (primary) key will be lastname and the clustering (ordering) key will be firstname.\n\n>> http POST :/rest/v2/schemas/keyspaces/stargate/tables json:='{\"name\": \"cavemen\",\"ifNotExists\": false,\"columnDefinitions\": [{\"name\": \"firstname\",\"typeDefinition\": \"text\",\"static\": false},{\"name\": \"lastname\",\"typeDefinition\": \"text\",\"static\": false},{\"name\": \"occupation\",\"typeDefinition\": \"text\"}],\"primaryKey\": {\"partitionKey\":[\"lastname\"],\"clusteringKey\": [\"firstname\"]}}'\n\nTo make sure it was created, let's check the list of tables we have:\n\n>> http :/rest/v2/schemas/keyspaces/stargate/tables\n\n"
+      },
+      {
+        "title": "Document API - Add Some Rows",
+        "description": "## Document API - Add Some Rows\n\nWe've got a table but it's empty - let's put some cavemen in our cavemen table.\n\n>> http POST :/rest/v2/keyspaces/stargate/cavemen json:='{\"firstname\" : \"Fred\", \"lastname\": \"Flintstone\"}'\n\n>> http POST :/rest/v2/keyspaces/stargate/cavemen json:='{\"firstname\" : \"Barney\", \"lastname\": \"Rubble\"}'\n\nTo make sure they made it in, we can do a simple search on the database:\n\n>> http :/rest/v2/keyspaces/stargate/cavemen where=='{\"lastname\":{\"$in\":[\"Rubble\",\"Flintstone\"]}}'"
+      },
+      {
+        "title": "Document API - Update Rows",
+        "description": "## Document API - Update Rows\n\nFred is driving Wilma crazy, so she needs him to get a job.  Give him one by updating the row.\n\n>> http PUT :/rest/v2/keyspaces/stargate/cavemen/Flintstone/Fred json:='{ \"occupation\": \"Quarry Screamer\"}'\n\nCheck our work: \n\n>> http :/rest/v2/keyspaces/stargate/cavemen where=='{\"lastname\":{\"$in\":[\"Rubble\",\"Flintstone\"]}}' "
+      },
+      {
+        "title": "Document API - Delete Rows",
+        "description": "## Document API - Delete Rows\n\nNow Fred has a job but Barney's kind of useless.  Let's delete him from the database.  Notice that here we're addressing Barney by the partition key (lastname) and the clustering key (firstname).\n\n>> http DELETE :/rest/v2/keyspaces/stargate/cavemen/Rubble/Barney\n\nSo wait, is he gone?\n\n>> http :/rest/v2/keyspaces/stargate//Rubble/Barney"
+      },
+      {
+        "title": "Back to the slides",
+        "description": "Time to get back to the slides to move on to the GraphQL API."
+      }
+    ],
+    "ref": "main"
+  }
