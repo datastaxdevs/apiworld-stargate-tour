@@ -1,6 +1,7 @@
 {
     "$schema": "https://aka.ms/codetour-schema",
     "title": "2. REST API",
+    "nextTour": "3. Document API",
     "steps": [
       {
         "title": "REST API - Create table",
