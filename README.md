@@ -3,3 +3,5 @@
 Just open the course in Gitpod to get started:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/synedra/apiworld-stargate-tour)
+
+[View the slides](https://github.com/synedra/apiworld-stargate-tour/blob/main/slides.pdf)
