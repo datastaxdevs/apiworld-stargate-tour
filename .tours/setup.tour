@@ -5,7 +5,7 @@
     "steps": [
       {
         "title": "Authentication",
-        "description": "## Initial Setup\n\n*Note: `astra-setup` requires an authentication token, and will guide you on how to generate this in your Astra DB dashboard.*\n\n**RUN**\n>> astra-setup workshops stargate\n\n[Visit Astra](https://astra.datastax.com) and follow the instructions in the console to get your token for the astra-setup step.\n\n![Image of Yaktocat](https://github.com/datastaxdevs/workshop-spring-stargate/raw/main/images/tutorials/astra-create-db.gif?raw=true)\n"
+        "description": "## Initial Setup\n\n*Note: `astra-setup` requires an authentication token, and will guide you on how to generate this in your Astra DB dashboard.*\n\n**RUN**\n>> astra-setup workshops stargate\n\n[Visit Astra](https://dtsx.io/3nmAYf4) and follow the instructions in the console to get your token for the astra-setup step.  Note that on October 28 during API World you will receive a $25 gift card for signing up!\n\n![Image of Yaktocat](https://github.com/datastaxdevs/workshop-spring-stargate/raw/main/images/tutorials/astra-create-db.gif?raw=true)\n"
       }
     ]
   }
